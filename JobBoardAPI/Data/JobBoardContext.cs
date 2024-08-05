@@ -16,15 +16,14 @@ public class JobBoardContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Staff>(entity =>
         {
             entity.HasMany(s => s.JobPosts)
                 .WithOne(j => j.Staff)
-                .HasForeignKey(j => j.StaffId);
-
-            entity.HasMany(s => s.Applications)
-                .WithOne(a => a.AssignedStaff)
-                .HasForeignKey(a => a.AssignedStaffId);
+                .HasForeignKey(j => j.StaffId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasIndex(s => s.UserName)
                 .IsUnique();
@@ -34,29 +33,35 @@ public class JobBoardContext : DbContext
         {
             entity.HasMany(a => a.Applications)
                 .WithOne(j => j.Applicant)
-                .HasForeignKey(j => j.ApplicantId);
+                .HasForeignKey(j => j.ApplicantId)
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<Application>(entity =>
         {
             entity.HasOne(a => a.JobPost)
                 .WithMany(j => j.Applications)
-                .HasForeignKey(a => a.JobPostId);
+                .HasForeignKey(a => a.JobPostId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasOne(a => a.Applicant)
                 .WithMany(a => a.Applications)
-                .HasForeignKey(a => a.ApplicantId);
+                .HasForeignKey(a => a.ApplicantId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasOne(a => a.AssignedStaff)
-                .WithMany(s => s.Applications)
-                .HasForeignKey(a => a.AssignedStaffId);
+                .WithMany()
+                .HasForeignKey(a => a.AssignedStaffId)
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         modelBuilder.Entity<JobPost>(entity =>
         {
             entity.HasOne(j => j.Staff)
                 .WithMany(s => s.JobPosts)
-                .HasForeignKey(j => j.StaffId);
+                .HasForeignKey(j => j.StaffId)
+                .OnDelete(DeleteBehavior.NoAction);
         });
     }
+
 }

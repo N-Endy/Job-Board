@@ -12,9 +12,9 @@ namespace JobBoardAPI.Models
         public int ApplicantId { get; set; }
         [ForeignKey(nameof(ApplicantId))]
         public Applicant Applicant { get; set; }
+        public ApplicationStatus Status { get; set; }
         public int AssignedStaffId { get; set; }
         [ForeignKey(nameof(AssignedStaffId))]
         public Staff AssignedStaff { get; set; }
-        public ApplicationStatus Status { get; set; }
     }
 }
