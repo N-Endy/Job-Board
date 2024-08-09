@@ -47,8 +47,11 @@ namespace JobBoardAPI.Migrations
 
             modelBuilder.Entity("JobBoardAPI.Models.Application", b =>
                 {
-                    b.Property<string>("ApplicationId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ApplicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"));
 
                     b.Property<int>("ApplicantId")
                         .HasColumnType("int");
@@ -131,7 +134,7 @@ namespace JobBoardAPI.Migrations
                     b.HasOne("JobBoardAPI.Models.Applicant", "Applicant")
                         .WithMany("Applications")
                         .HasForeignKey("ApplicantId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JobBoardAPI.Models.Staff", "AssignedStaff")
@@ -143,7 +146,7 @@ namespace JobBoardAPI.Migrations
                     b.HasOne("JobBoardAPI.Models.JobPost", "JobPost")
                         .WithMany("Applications")
                         .HasForeignKey("JobPostId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Applicant");

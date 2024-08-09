@@ -23,7 +23,7 @@ public class JobBoardContext : DbContext
             entity.HasMany(s => s.JobPosts)
                 .WithOne(j => j.Staff)
                 .HasForeignKey(j => j.StaffId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             entity.HasIndex(s => s.UserName)
                 .IsUnique();
@@ -34,7 +34,7 @@ public class JobBoardContext : DbContext
             entity.HasMany(a => a.Applications)
                 .WithOne(j => j.Applicant)
                 .HasForeignKey(j => j.ApplicantId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Application>(entity =>
@@ -42,12 +42,12 @@ public class JobBoardContext : DbContext
             entity.HasOne(a => a.JobPost)
                 .WithMany(j => j.Applications)
                 .HasForeignKey(a => a.JobPostId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             entity.HasOne(a => a.Applicant)
                 .WithMany(a => a.Applications)
                 .HasForeignKey(a => a.ApplicantId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
             entity.HasOne(a => a.AssignedStaff)
                 .WithMany()

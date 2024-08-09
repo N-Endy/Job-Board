@@ -5,7 +5,7 @@ namespace JobBoardAPI.Models
 {
     public class Application
     {
-        public string ApplicationId { get; set; }
+        public int ApplicationId { get; set; }
         public int JobPostId { get; set; }
         [ForeignKey(nameof(JobPostId))]
         public JobPost JobPost { get; set; }
