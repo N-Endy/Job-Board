@@ -10,7 +10,7 @@ using JobBoardAPI.Models;
 
 namespace JobBoardAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/jobposts")]
     [ApiController]
     public class JobPostController : ControllerBase
     {
@@ -25,7 +25,9 @@ namespace JobBoardAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JobPost>>> GetJobPosts()
         {
-            return await _context.JobPosts.ToListAsync();
+            return await _context.JobPosts
+                .Include(a => a.Applications)
+                .ToListAsync();
         }
 
         // GET: api/JobPost/5
@@ -34,12 +36,7 @@ namespace JobBoardAPI.Controllers
         {
             var jobPost = await _context.JobPosts.FindAsync(id);
 
-            if (jobPost == null)
-            {
-                return NotFound();
-            }
-
-            return jobPost;
+            return jobPost == null ? NotFound() : jobPost;
         }
 
         // PUT: api/JobPost/5
@@ -48,9 +45,16 @@ namespace JobBoardAPI.Controllers
         public async Task<IActionResult> PutJobPost(int id, JobPost jobPost)
         {
             if (id != jobPost.JobPostId)
-            {
                 return BadRequest();
-            }
+
+            var newJobPost = await _context.JobPosts.FindAsync(id);
+            if (newJobPost == null)
+                return NotFound();
+
+            newJobPost.Title = jobPost.Title;
+            newJobPost.Description = jobPost.Description;
+            newJobPost.StaffId = jobPost.StaffId;
+            newJobPost.Staff = jobPost.Staff;
 
             _context.Entry(jobPost).State = EntityState.Modified;
 
@@ -61,13 +65,13 @@ namespace JobBoardAPI.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!JobPostExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
-                    throw;
-                }
+                    return StatusCode(500, "A concurrency error occurred. Please try again.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
             }
 
             return NoContent();
@@ -81,7 +85,7 @@ namespace JobBoardAPI.Controllers
             _context.JobPosts.Add(jobPost);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetJobPost", new { id = jobPost.JobPostId }, jobPost);
+            return CreatedAtAction(nameof(GetJobPost), new { id = jobPost.JobPostId }, jobPost);
         }
 
         // DELETE: api/JobPost/5
@@ -90,9 +94,7 @@ namespace JobBoardAPI.Controllers
         {
             var jobPost = await _context.JobPosts.FindAsync(id);
             if (jobPost == null)
-            {
                 return NotFound();
-            }
 
             _context.JobPosts.Remove(jobPost);
             await _context.SaveChangesAsync();
