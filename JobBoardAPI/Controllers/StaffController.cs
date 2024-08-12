@@ -46,7 +46,6 @@ namespace JobBoardAPI.Controllers
             if (newStaff == null)
                 return NotFound();
 
-            newStaff.StaffId = staff.StaffId;
             newStaff.UserName = staff.UserName;
             newStaff.Password =  staff.Password;
             newStaff.FullName = staff.FullName;

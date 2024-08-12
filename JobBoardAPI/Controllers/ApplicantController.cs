@@ -46,7 +46,6 @@ namespace JobBoardAPI.Controllers
             if (updatedApplicant == null)
                 return NotFound();
 
-            updatedApplicant.ApplicantId = applicant.ApplicantId;
             updatedApplicant.FullName = applicant.FullName;
 
             _context.Entry(applicant).State = EntityState.Modified;

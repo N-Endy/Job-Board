@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JobBoardAPI.Data;
@@ -10,7 +5,7 @@ using JobBoardAPI.Models;
 
 namespace JobBoardAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/applications")]
     [ApiController]
     public class ApplicationController : ControllerBase
     {
@@ -34,12 +29,7 @@ namespace JobBoardAPI.Controllers
         {
             var application = await _context.Applications.FindAsync(id);
 
-            if (application == null)
-            {
-                return NotFound();
-            }
-
-            return application;
+            return application == null ? NotFound() : application;
         }
 
         // PUT: api/Application/5
@@ -48,9 +38,11 @@ namespace JobBoardAPI.Controllers
         public async Task<IActionResult> PutApplication(int id, Application application)
         {
             if (id != application.ApplicationId)
-            {
                 return BadRequest();
-            }
+
+            var updatedApplication = await _context.Applications.FindAsync(id);
+            if (updatedApplication == null)
+                return NotFound();
 
             _context.Entry(application).State = EntityState.Modified;
 
@@ -61,13 +53,13 @@ namespace JobBoardAPI.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ApplicationExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
-                    throw;
-                }
+                    return StatusCode(500, "A concurrency error occurred. Please try again");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
             }
 
             return NoContent();
@@ -81,7 +73,7 @@ namespace JobBoardAPI.Controllers
             _context.Applications.Add(application);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetApplication", new { id = application.ApplicationId }, application);
+            return CreatedAtAction(nameof(GetApplication), new { id = application.ApplicationId }, application);
         }
 
         // DELETE: api/Application/5
@@ -90,9 +82,7 @@ namespace JobBoardAPI.Controllers
         {
             var application = await _context.Applications.FindAsync(id);
             if (application == null)
-            {
                 return NotFound();
-            }
 
             _context.Applications.Remove(application);
             await _context.SaveChangesAsync();
