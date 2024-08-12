@@ -2074,19 +2074,6 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
-      "Spectre.Console/0.49.1": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/Spectre.Console.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Spectre.Console.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -6834,26 +6821,6 @@
         "nuget.versioning.nuspec"
       ]
     },
-    "Spectre.Console/0.49.1": {
-      "sha512": "USV+pdu49OJ3nCjxNuw1K9Zw/c1HCBbwbjXZp0EOn6wM99tFdAtN34KEBZUMyRuJuXlUMDqhd8Yq9obW2MslYA==",
-      "type": "package",
-      "path": "spectre.console/0.49.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net6.0/Spectre.Console.dll",
-        "lib/net6.0/Spectre.Console.xml",
-        "lib/net7.0/Spectre.Console.dll",
-        "lib/net7.0/Spectre.Console.xml",
-        "lib/net8.0/Spectre.Console.dll",
-        "lib/net8.0/Spectre.Console.xml",
-        "lib/netstandard2.0/Spectre.Console.dll",
-        "lib/netstandard2.0/Spectre.Console.xml",
-        "small-logo.png",
-        "spectre.console.0.49.1.nupkg.sha512",
-        "spectre.console.nuspec"
-      ]
-    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "sha512": "eUBr4TW0up6oKDA5Xwkul289uqSMgY0xGN4pnbOIBqCcN9VKGGaPvHX3vWaG/hvocfGDP+MGzMA0bBBKz2fkmQ==",
       "type": "package",
@@ -8326,7 +8293,6 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.7",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.7",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.3",
-      "Spectre.Console >= 0.49.1",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -8394,10 +8360,6 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.3, )"
-          },
-          "Spectre.Console": {
-            "target": "Package",
-            "version": "[0.49.1, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
