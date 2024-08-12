@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JobBoardAPI.Data;
@@ -10,7 +5,7 @@ using JobBoardAPI.Models;
 
 namespace JobBoardAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/applicant")]
     [ApiController]
     public class ApplicantController : ControllerBase
     {
@@ -25,7 +20,9 @@ namespace JobBoardAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()
         {
-            return await _context.Applicants.ToListAsync();
+            return await _context.Applicants
+                .Include(x => x.Applications)
+                .ToListAsync();
         }
 
         // GET: api/Applicant/5
@@ -34,12 +31,7 @@ namespace JobBoardAPI.Controllers
         {
             var applicant = await _context.Applicants.FindAsync(id);
 
-            if (applicant == null)
-            {
-                return NotFound();
-            }
-
-            return applicant;
+            return applicant == null ? NotFound() : applicant;
         }
 
         // PUT: api/Applicant/5
@@ -48,9 +40,14 @@ namespace JobBoardAPI.Controllers
         public async Task<IActionResult> PutApplicant(int id, Applicant applicant)
         {
             if (id != applicant.ApplicantId)
-            {
                 return BadRequest();
-            }
+
+            var updatedApplicant = await _context.Applicants.FindAsync(id);
+            if (updatedApplicant == null)
+                return NotFound();
+
+            updatedApplicant.ApplicantId = applicant.ApplicantId;
+            updatedApplicant.FullName = applicant.FullName;
 
             _context.Entry(applicant).State = EntityState.Modified;
 
@@ -61,13 +58,13 @@ namespace JobBoardAPI.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ApplicantExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
-                    throw;
-                }
+                    return StatusCode(500, "A concurrency error occurred. Please try again");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
             }
 
             return NoContent();
@@ -81,7 +78,7 @@ namespace JobBoardAPI.Controllers
             _context.Applicants.Add(applicant);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetApplicant", new { id = applicant.ApplicantId }, applicant);
+            return CreatedAtAction(nameof(GetApplicant), new { id = applicant.ApplicantId }, applicant);
         }
 
         // DELETE: api/Applicant/5
@@ -90,9 +87,7 @@ namespace JobBoardAPI.Controllers
         {
             var applicant = await _context.Applicants.FindAsync(id);
             if (applicant == null)
-            {
                 return NotFound();
-            }
 
             _context.Applicants.Remove(applicant);
             await _context.SaveChangesAsync();

@@ -49,6 +49,7 @@ namespace JobBoardAPI.Controllers
             newStaff.StaffId = staff.StaffId;
             newStaff.UserName = staff.UserName;
             newStaff.Password =  staff.Password;
+            newStaff.FullName = staff.FullName;
 
             _context.Entry(staff).State = EntityState.Modified;
 
