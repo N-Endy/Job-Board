@@ -16,6 +16,15 @@ namespace JobBoardAPI.Controllers
             _context = context;
         }
 
+        // GET: api/Staff/{username}
+        [HttpGet]
+        public async Task<ActionResult<Staff>> GetStaffLogin(string username)
+        {
+            var staff = await _context.Staffs.FirstOrDefaultAsync(s => s.UserName == username);
+            return staff == null ? NotFound() : staff;
+
+        }
+
         // GET: api/Staff
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Staff>>> GetStaffs()

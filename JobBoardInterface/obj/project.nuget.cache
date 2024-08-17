@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QGwmCyBYo8GnzHXoLIvm6OoEY9TrJTEgzL2fAYemMoBe0acuOZg5b9rTxEG+aH88Z6Hr092dUC7MdyxcUmY6rg==",
+  "success": true,
+  "projectFilePath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj",
+  "expectedPackageFiles": [
+    "/home/nelson/.nuget/packages/spectre.console/0.49.1/spectre.console.0.49.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobBoardAPI", "JobBoardAPI\JobBoardAPI.csproj", "{650C545D-4EC4-4EE7-AF6C-D206F70CF8ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobBoardUI", "JobBoardUI\JobBoardUI.csproj", "{93A842D2-3BCD-4A95-8E2F-E6DD52F024EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobBoardInterface", "JobBoardInterface\JobBoardInterface.csproj", "{DB93A816-C315-4711-9CCC-91DC550B1A9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{650C545D-4EC4-4EE7-AF6C-D206F70CF8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{650C545D-4EC4-4EE7-AF6C-D206F70CF8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{650C545D-4EC4-4EE7-AF6C-D206F70CF8ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93A842D2-3BCD-4A95-8E2F-E6DD52F024EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93A842D2-3BCD-4A95-8E2F-E6DD52F024EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93A842D2-3BCD-4A95-8E2F-E6DD52F024EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93A842D2-3BCD-4A95-8E2F-E6DD52F024EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB93A816-C315-4711-9CCC-91DC550B1A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB93A816-C315-4711-9CCC-91DC550B1A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB93A816-C315-4711-9CCC-91DC550B1A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB93A816-C315-4711-9CCC-91DC550B1A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

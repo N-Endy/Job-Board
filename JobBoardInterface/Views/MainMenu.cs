@@ -1,13 +1,13 @@
 using Spectre.Console;
 
-namespace JobBoardUI.Views;
+namespace JobBoardInterface.Views;
 public class MainMenu
 {
     public async Task ShowMainMenu()
     {
         bool isAppRunning = true;
 
-        if (isAppRunning)
+        while (isAppRunning)
         {
             var choice = AnsiConsole.Prompt(new SelectionPrompt<string>()
                     .Title("JobBoard Main Menu")
@@ -20,11 +20,11 @@ public class MainMenu
 
                 switch (choice)
                 {
-                    case "Manage Workers":
-                        await ApplicantMenu();
+                    case "Applicant":
+                        await ApplicantView.ApplicantMenu();
                         break;
-                    case "Manage Shifts":
-                        await StaffMenu();
+                    case "Staff":
+                        await StaffView.LoginMenu();
                         break;
                     case "Exit":
                         isAppRunning = false;

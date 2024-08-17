@@ -2074,6 +2074,19 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
+      "Spectre.Console/0.49.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Spectre.Console.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Spectre.Console.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -2849,6 +2862,19 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "JobBoardInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Spectre.Console": "0.49.1"
+        },
+        "compile": {
+          "bin/placeholder/JobBoardInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JobBoardInterface.dll": {}
         }
       }
     }
@@ -6821,6 +6847,26 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "Spectre.Console/0.49.1": {
+      "sha512": "USV+pdu49OJ3nCjxNuw1K9Zw/c1HCBbwbjXZp0EOn6wM99tFdAtN34KEBZUMyRuJuXlUMDqhd8Yq9obW2MslYA==",
+      "type": "package",
+      "path": "spectre.console/0.49.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Spectre.Console.dll",
+        "lib/net6.0/Spectre.Console.xml",
+        "lib/net7.0/Spectre.Console.dll",
+        "lib/net7.0/Spectre.Console.xml",
+        "lib/net8.0/Spectre.Console.dll",
+        "lib/net8.0/Spectre.Console.xml",
+        "lib/netstandard2.0/Spectre.Console.dll",
+        "lib/netstandard2.0/Spectre.Console.xml",
+        "small-logo.png",
+        "spectre.console.0.49.1.nupkg.sha512",
+        "spectre.console.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "sha512": "eUBr4TW0up6oKDA5Xwkul289uqSMgY0xGN4pnbOIBqCcN9VKGGaPvHX3vWaG/hvocfGDP+MGzMA0bBBKz2fkmQ==",
       "type": "package",
@@ -8283,10 +8329,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "JobBoardInterface/1.0.0": {
+      "type": "project",
+      "path": "../JobBoardInterface/JobBoardInterface.csproj",
+      "msbuildProject": "../JobBoardInterface/JobBoardInterface.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "JobBoardInterface >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.7",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.7",
@@ -8320,7 +8372,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj": {
+              "projectPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -8385,7 +8441,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -50,11 +50,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardUI/JobBoardUI.csproj",
-      "projectName": "JobBoardUI",
-      "projectPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardUI/JobBoardUI.csproj",
+      "projectUniqueName": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj",
+      "projectName": "JobBoardInterface",
+      "projectPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj",
       "packagesPath": "/home/nelson/.nuget/packages/",
-      "outputPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardUI/obj/",
+      "outputPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/nelson/.nuget/NuGet/NuGet.Config"
@@ -102,7 +102,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
