@@ -3,6 +3,7 @@ using JobBoardInterface.Models;
 using JobBoardInterface.Utilities;
 
 namespace JobBoardInterface.Controllers;
+
 public class StaffController
 {
     private readonly HttpClient? _httpClient = new();
@@ -34,7 +35,7 @@ public class StaffController
 
     public async Task<Staff?> GetStaffLogin(string username)
     {
-            Console.WriteLine(username);
+        Console.WriteLine(username);
         try
         {
             if (_httpClient == null)
@@ -42,7 +43,9 @@ public class StaffController
                 throw new InvalidOperationException("HttpClient is not initialized.");
             }
 
-            var response = await _httpClient.GetAsync($"{_baseUrl}/api/staffs/{username}");
+            //Change three the url /api/staff/find/{username} it matches with the controller
+            //not staffs
+            var response = await _httpClient.GetAsync($"{_baseUrl}/api/staff/find/{username}");
             return await ApiResponseHandler.HandleResponse<Staff>(response);
         }
         catch (HttpRequestException ex)

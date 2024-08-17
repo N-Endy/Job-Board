@@ -13,7 +13,6 @@ namespace JobBoardInterface.Services
         internal static async Task<bool> LoginStaff()
         {
             var login = Prompts.GetLoginDetails();
-            Console.WriteLine($"{login[0]} {login[1]}");
             var staff = await _staffController.GetStaffLogin(login[0]);
             return staff != null && staff.UserName == login[0] && staff.Password == login[1];
         }

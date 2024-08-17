@@ -45,24 +45,26 @@
     ]
   },
   "packageFolders": {
-    "/home/nelson/.nuget/packages/": {}
+    "C:\\Users\\goodl\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj",
+      "projectUniqueName": "C:\\Users\\goodl\\OneDrive\\Desktop\\Chizoba\\Asp.Net\\Job-Board\\JobBoardInterface\\JobBoardInterface.csproj",
       "projectName": "JobBoardInterface",
-      "projectPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/JobBoardInterface.csproj",
-      "packagesPath": "/home/nelson/.nuget/packages/",
-      "outputPath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardInterface/obj/",
+      "projectPath": "C:\\Users\\goodl\\OneDrive\\Desktop\\Chizoba\\Asp.Net\\Job-Board\\JobBoardInterface\\JobBoardInterface.csproj",
+      "packagesPath": "C:\\Users\\goodl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\goodl\\OneDrive\\Desktop\\Chizoba\\Asp.Net\\Job-Board\\JobBoardInterface\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/nelson/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\goodl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -75,6 +77,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -102,7 +109,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

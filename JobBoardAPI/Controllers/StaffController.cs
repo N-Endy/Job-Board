@@ -5,7 +5,10 @@ using JobBoardAPI.Models;
 
 namespace JobBoardAPI.Controllers
 {
-    [Route("api/staffs")]
+    // change one staff
+    /*[Route("api")]
+    [ApiController]*/
+    [Route("api/[controller]")]
     [ApiController]
     public class StaffController : ControllerBase
     {
@@ -16,8 +19,9 @@ namespace JobBoardAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Staff/{username}
-        [HttpGet]
+       //  GET: api/Staff/{username}
+       // change two templates
+        [HttpGet("find/{username}", Name = "Login")]
         public async Task<ActionResult<Staff>> GetStaffLogin(string username)
         {
             var staff = await _context.Staffs.FirstOrDefaultAsync(s => s.UserName == username);
