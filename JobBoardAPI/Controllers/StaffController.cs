@@ -17,7 +17,7 @@ namespace JobBoardAPI.Controllers
         }
 
         // GET: api/Staff/{username}
-        [HttpGet]
+        [HttpGet("find/{username}")]
         public async Task<ActionResult<Staff>> GetStaffLogin(string username)
         {
             var staff = await _context.Staffs.FirstOrDefaultAsync(s => s.UserName == username);

@@ -53,12 +53,13 @@ namespace JobBoardInterface.Views
             while (isStaffViewRunning)
             {
                 var choice = AnsiConsole.Prompt(new SelectionPrompt<string>()
-                .Title("Shift Logger Workers Menu")
+                .Title("Staff Menu")
                 .AddChoices(
-                    "View Workers",
-                    "Add Worker",
-                    "Update Worker",
-                    "Delete Worker",
+                    "Create Job Post",
+                    "View All Job Posts",
+                    "View All Applicants",
+                    "View Applicants for My Job Posts",
+                    "View Applicants Assigned to Me",
                     "Go Back")
                 .UseConverter(x => x.ToString())
                 );

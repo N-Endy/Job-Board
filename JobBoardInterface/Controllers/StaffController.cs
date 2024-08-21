@@ -34,7 +34,6 @@ public class StaffController
 
     public async Task<Staff?> GetStaffLogin(string username)
     {
-            Console.WriteLine(username);
         try
         {
             if (_httpClient == null)
@@ -42,7 +41,7 @@ public class StaffController
                 throw new InvalidOperationException("HttpClient is not initialized.");
             }
 
-            var response = await _httpClient.GetAsync($"{_baseUrl}/api/staffs/{username}");
+            var response = await _httpClient.GetAsync($"{_baseUrl}/api/staffs/find/{username}");
             return await ApiResponseHandler.HandleResponse<Staff>(response);
         }
         catch (HttpRequestException ex)
