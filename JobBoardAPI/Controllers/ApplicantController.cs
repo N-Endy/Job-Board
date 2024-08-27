@@ -47,6 +47,7 @@ namespace JobBoardAPI.Controllers
                 return NotFound();
 
             updatedApplicant.FullName = applicant.FullName;
+            updatedApplicant.UserType = Enums.UserType.Applicant;
 
             _context.Entry(applicant).State = EntityState.Modified;
 

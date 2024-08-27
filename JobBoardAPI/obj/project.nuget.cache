@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5yUDs9NyXSq/xUpECtYw5irKEuGjswry3abfN48QmFtj3NY6lCa1Jn++XRwrMbW02X8H7OQPBahlK4X6BpkcCw==",
+  "dgSpecHash": "FMuWE9XSZgsCNKiFztdhkfxQCxwRSTtwqP55IMYyEO/Pzx0kP/09yLzGzXi+xxOSkEnax/7QwiS+yKsdNXPv6g==",
   "success": true,
   "projectFilePath": "/home/nelson/Desktop/CSharpProjects/Job-Board/JobBoardAPI/JobBoardAPI.csproj",
   "expectedPackageFiles": [
@@ -127,7 +127,6 @@
     "/home/nelson/.nuget/packages/nuget.projectmodel/6.9.1/nuget.projectmodel.6.9.1.nupkg.sha512",
     "/home/nelson/.nuget/packages/nuget.protocol/6.9.1/nuget.protocol.6.9.1.nupkg.sha512",
     "/home/nelson/.nuget/packages/nuget.versioning/6.9.1/nuget.versioning.6.9.1.nupkg.sha512",
-    "/home/nelson/.nuget/packages/spectre.console/0.49.1/spectre.console.0.49.1.nupkg.sha512",
     "/home/nelson/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/home/nelson/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/home/nelson/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

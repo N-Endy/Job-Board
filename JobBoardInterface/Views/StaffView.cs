@@ -1,4 +1,5 @@
 
+using JobBoardInterface.Controllers;
 using JobBoardInterface.Services;
 using JobBoardInterface.UserInteractions;
 using Spectre.Console;
@@ -63,6 +64,19 @@ namespace JobBoardInterface.Views
                     "Go Back")
                 .UseConverter(x => x.ToString())
                 );
+
+                switch (choice)
+                {
+                    case "Create Job Post":
+                        var jobPost = Prompts.GetJobPostDetails();
+                        await JobPostService.CreateJobPost(jobPost);
+                        break;
+                    case "View All Job Posts":
+                        await JobPostService.ViewAllJobPosts();
+                        break;
+                    case "Go Back":
+                        return;
+                }
             }
         }
     }

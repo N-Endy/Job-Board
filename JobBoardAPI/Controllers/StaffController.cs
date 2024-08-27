@@ -58,6 +58,7 @@ namespace JobBoardAPI.Controllers
             newStaff.UserName = staff.UserName;
             newStaff.Password =  staff.Password;
             newStaff.FullName = staff.FullName;
+            newStaff.UserType = Enums.UserType.Staff;
 
             _context.Entry(staff).State = EntityState.Modified;
 
